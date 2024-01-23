@@ -20,5 +20,6 @@ fn main() {
    let start = Instant::now();
    copy(&mut input, &mut encoder).unwrap();
    encoder.finish().unwrap();
-
+   let duration = start.elapsed();
+   println!("{:?}",duration);
 }
