@@ -22,11 +22,28 @@ fn unzip() -> i32{
     for i in 0..archive.len(){
         //get the file
         let mut file = archive.by_index(i).unwrap();
-        //get the name of the file
-        let fname = file.name();
-        //create the file
-        let mut outfile = fs::File::create(fname).unwrap();
-        //copy the file
-        io::copy(&mut file, &mut outfile).unwrap();
+        let outpath = match file.enclosed_name(){
+            Some(path) => path.to_owned(),
+            None => continue,
+        };
+        let comment = file.comment();
+        if !comment.is_empty(){
+            println!("File {} comment: {}",i,comment);
+        }
+        if filename.is_empty(){
+            println!("File {} extracted to \"{}\"",i,outpath.display());
+        }
+        else{
+            println!("File {} extracted to \"{}\" (in file {})",i,outpath.display(),filename);
+            fs::create_dir_all(outpath.parent().unwrap()).unwrap();
+        }
+        if let Some(p) = outpath.parent(){
+            if !p.exists(){
+                fs::create_dir_all(p).unwrap();
+            }
+        }
+        let mut outfile = fs::File::create(&outpath).unwrap();
+        io::copy(&mut file,&mut outfile).unwrap();
+        println!("File {} extracted to \"{}\"",i,outpath.display());
     }
 }
