@@ -48,4 +48,6 @@ fn unzip() -> i32{
         println!("File {} extracted to \"{}\"",i,outpath.display());
     }
     0 // Add this line to fix the mismatched types error
+    // Add this line to fix the 'main' function not found error
+    
 }
