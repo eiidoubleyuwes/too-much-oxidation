@@ -1,12 +1,17 @@
 //this program is for unzipping a file
 //It is meant to be complimentary to the one I made to zip files
-extern crate flate2;
-use std::io::BufReader;
-use std::io::prelude::*;
-use std::fs::File;
-use std::env;
-use flate2::Decompress;
-use flate2::write::GzEncoder;
+use std::fs;
+use std::io;
 fn main(){
-    
+    std::process::exit(unzip())
+}
+fn unzip() -> i32{
+    //Using a vector for args
+    let args : Vec<_> = std::env::args().collect();
+    //If there are not enough args
+    if args.len() < 2{
+        println!("Not enough arguments Usage: Filename",args[0]);
+        return 1;
+    }
+    let fname =std::path::Path::new(&*args[1]);
 }
