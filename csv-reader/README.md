@@ -1,0 +1,1 @@
+This is the first project I've made where I've added unnesseasry code on purpose especially with the struct
