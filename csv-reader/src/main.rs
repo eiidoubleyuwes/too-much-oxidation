@@ -2,8 +2,7 @@
 //ofc the csv file should be in the same directory as the executable
 extern crate serde;
 use std::fs;
-use std::io;
-use serde::{Deserialize, Serialize};
+use serde::Deserialize;
 fn main() {
     std::process::exit( reader());
 }
