@@ -2,7 +2,6 @@
 //It is meant to be complimentary to the one I made to zip files
 use std::fs;
 use std::io;
-use std::iter::zip;
 fn main(){
     std::process::exit(unzip())
 }
@@ -11,7 +10,7 @@ fn unzip() -> i32{
     let args : Vec<_> = std::env::args().collect();
     //If there are not enough args
     if args.len() < 2{
-        println!("Not enough arguments Usage: Filename",args[0]);
+        println!("Not enough arguments Usage: Filename");
         return 1;
     }
     let fname =std::path::Path::new(&*args[1]);
