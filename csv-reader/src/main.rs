@@ -14,9 +14,9 @@ fn reader() -> i32{
     }
     #[derive(Debug, Deserialize)]
     struct Record{
-        name: String,
-        place: String,
-        id: String,
+       _name: String,
+        _place: String,
+        _id: String,
     }
     println!("Reading file {}",args[1]);
     let mut rdr = csv::Reader::from_reader(fs::File::open(&args[1]).unwrap());
