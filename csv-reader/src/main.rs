@@ -5,5 +5,20 @@ use std::fs;
 use std::io;
 use serde::{Deserialize, Serialize};
 fn main() {
-    println!("Hello, world!");
+    std::process::exit( reader());
+}
+fn reader() -> i32{
+    let args : Vec<_> = std::env::args().collect();
+    if args.len() < 2{
+        println!("Not enough arguments Usage: Filename");
+        return 1;
+    }
+    let filename = &args[1];
+    let file = fs::File::open(filename).unwrap();
+    let mut rdr = csv::Reader::from_reader(file);
+    for result in rdr.records(){
+        let record = result.unwrap();
+        println!("{:?}",record);
+    }
+    0
 }
