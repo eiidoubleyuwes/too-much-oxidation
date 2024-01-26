@@ -46,8 +46,16 @@ fn unzip() -> i32{
         let mut outfile = fs::File::create(&outpath).unwrap();
         io::copy(&mut file,&mut outfile).unwrap();
         println!("File {} extracted to \"{}\"",i,outpath.display());
+        //To get users of the file ie set permissions
+        #[cfg(unix)]
+        {
+            use std::os::unix::fs::PermissionsExt;
+            if let Some(mode) = file.unix_mode(){
+                fs::set_permissions(&outpath,fs::Permissions::from_mode(mode)).unwrap();
+            }
+        }
     }
     0 // Add this line to fix the mismatched types error
     // Add this line to fix the 'main' function not found error
-    
+
 }
