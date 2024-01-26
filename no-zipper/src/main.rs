@@ -30,6 +30,7 @@ fn unzip() -> i32{
         if !comment.is_empty(){
             println!("File {} comment: {}",i,comment);
         }
+        let filename = ""; // Add this line to fix the 'filename' not found error
         if filename.is_empty(){
             println!("File {} extracted to \"{}\"",i,outpath.display());
         }
@@ -46,4 +47,5 @@ fn unzip() -> i32{
         io::copy(&mut file,&mut outfile).unwrap();
         println!("File {} extracted to \"{}\"",i,outpath.display());
     }
+    0 // Add this line to fix the mismatched types error
 }
