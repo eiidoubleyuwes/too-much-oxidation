@@ -11,7 +11,7 @@ struct Sentensi {
 struct Article{
     paragraphs: Vec<Sentensi>,
     author: String,
-    author: String,
+    
 }
 fn main() {
     let json =r#"{
@@ -43,6 +43,7 @@ fn main() {
         for phone in paragraph.phones {
             println!("Phone: {}", phone);
         }
-        
+
 
     }
+}
