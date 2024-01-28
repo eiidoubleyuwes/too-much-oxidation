@@ -35,6 +35,9 @@ fn main() {
         ],
         "author": "Wahyu"
     }"#;
+    let article: Article = serde_json::from_str(json).unwrap();
+    println!("Author: {}", article.author);
+    
         
 
     }
