@@ -9,7 +9,7 @@ struct Sentensi {
 }
 #[derive(Serialize, Deserialize)]
 struct Article{
-    paragraphs: Vec<String>,
+    paragraphs: Vec<Sentensi>,
     author: String,
     author: String,
 }
