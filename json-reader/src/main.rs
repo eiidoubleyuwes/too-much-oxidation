@@ -14,7 +14,16 @@ struct Article{
     author: String,
 }
 fn main() {
-    println!("Hello,welsome to JSON Reader!");
-    println!("Please enter the file name you want to read(Usage : File name): ");
-    
-}
+    let json =r#"{
+        "paragraphs": [
+            {
+                "name": "Wahyu",
+                "age": 20,
+                "phones": [
+                    "+62 812-3456-7890",
+                    "+62 123-4567-8901"
+                ]
+            },
+        
+
+    }
