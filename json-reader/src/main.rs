@@ -37,7 +37,11 @@ fn main() {
     }"#;
     let article: Article = serde_json::from_str(json).unwrap();
     println!("Author: {}", article.author);
-    
-        
+    for paragraph in article.paragraphs {
+        println!("Name: {}", paragraph.name);
+        println!("Age: {}", paragraph.age);
+        for phone in paragraph.phones {
+            println!("Phone: {}", phone);
+        }
 
     }
