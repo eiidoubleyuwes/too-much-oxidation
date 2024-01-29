@@ -32,7 +32,8 @@ fn main() {
             },
         ],
     };
-    
+    let json = serde_json::to_string(&article).unwrap();
+    println!("{}", json);
 
 
 }
