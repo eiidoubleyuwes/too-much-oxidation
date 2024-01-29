@@ -33,8 +33,23 @@ fn main() {
             },
         ],
     };
+    //Lets see if I can print JSON to the screen
     let json = serde_json::to_string(&article).unwrap();
-    println!("{}", json);
+    println!("{}
+    ", json);
+    //Now lets see if I can read the JSON file
+    let article: Article = serde_json::from_str(&json).unwrap();
+    println!("{}
+    ", article.article);
+    println!("{}
+    ", article.author);
+    println!("{}
+    ", article.paragraph[0].name);
+    println!("{}
+    ", article.paragraph[1].name);
+    println!("{}
+    ", article.paragraph[2].name);
+
 
 
 }
