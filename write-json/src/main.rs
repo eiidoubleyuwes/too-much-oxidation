@@ -16,5 +16,23 @@ struct Article {
 }
 
 fn main() {
-    println!("Hello, world!");
+    let article = Article {
+        article: "This is a test article".to_string(),
+        author: "John Doe".to_string(),
+        paragraph: vec![
+            Paragraph {
+                name: "This is a paragraph".to_string(),
+
+            },
+            Paragraph {
+                name: "This is another paragraph".to_string(),
+            },
+            Paragraph {
+                name: "This is a third paragraph".to_string(),
+            },
+        ],
+    };
+    
+
+
 }
