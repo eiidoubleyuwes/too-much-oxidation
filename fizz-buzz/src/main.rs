@@ -6,4 +6,8 @@ fn main() {
     io::stdin().read_line(&mut input).expect("Bad input");
     let input: i32 = input.trim().parse().expect("Bad input");
     for i in 1..input {
+        if i % 3 == 0 && i % 5 == 0 {
+            println!("FizzBuzz");
+        
+    }
 }
