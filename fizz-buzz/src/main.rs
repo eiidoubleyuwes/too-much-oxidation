@@ -5,6 +5,7 @@ fn main() {
     let mut input = String::new();
     io::stdin().read_line(&mut input).expect("Bad input");
     let input: i32 = input.trim().parse().expect("Bad input");
+    //It should print the output to THE CONSOLE
     for i in 1..input {
         if i % 3 == 0 && i % 5 == 0 {
             println!("FizzBuzz");
