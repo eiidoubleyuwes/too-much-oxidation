@@ -6,5 +6,6 @@ error_chain
 fn main() {
     let mut request = reqwest::get("https://httpbin.org/ip")?
         .expect("Couldn't make request");
-    
+    let mut body = String::new();
+   
 }
