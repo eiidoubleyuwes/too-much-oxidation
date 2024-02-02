@@ -72,4 +72,5 @@ fn main() {
         }
     }
     close_wlan_handle(handle).unwrap();
+    ///Too buggy will fix later
 }
