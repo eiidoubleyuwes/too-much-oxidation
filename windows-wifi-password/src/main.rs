@@ -21,9 +21,11 @@ use windows ::{
 //Functions
 fn open_wlan_handle(api version :u32) -> Result<HANDLE, WIN32_ERROR>{
     let mut handle :HANDLE = INVALID_HANDLE_VALUE;
-    unsafe{
+    let mut result = unsafe{
         WlanOpenHandle(api, None, &mut handle)
     }
+    WIN32_ERROR(result).ok_or(result)?;
+    Ok(handle)
 }
 fn main() {
     println!("Hello, world!");
