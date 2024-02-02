@@ -12,5 +12,9 @@ features = [
    "Win32_Foundation",
    "Foundation_Collections",
    "Win32 NetworkManagement WiFi",
+   "Win32 Security",
+   "Win32_Systen_Con",
+   "Win32 System Threading",
+   "Win32_UI WindowsAndMessaging",
    
 ]
