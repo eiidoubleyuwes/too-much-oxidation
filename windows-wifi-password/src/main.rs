@@ -34,7 +34,23 @@ fn close_wlan_handle(handle :HANDLE) -> Result<(), WIN32_ERROR>{
     WIN32_ERROR(result).ok_or(result)?;
     Ok(())
 }
-
+fn enum_interfaces(handle :HANDLE) -> Result<Vec<WLAN_INTERFACE_INFO>, WIN32_ERROR>{
+    let mut interface_list :*mut WLAN_INTERFACE_INFO = std::ptr::null_mut();
+    let mut result = unsafe{
+        WlanEnumInterfaces(handle, None, &mut interface_list)
+    };
+    WIN32_ERROR(result).ok_or(result)?;
+    let mut interfaces = Vec::new();
+    let mut current = interface_list;
+    while !current.is_null(){
+        interfaces.push(unsafe{current.as_ref()}.unwrap().clone());
+        current = unsafe{current.offset(1)};
+    }
+    unsafe{
+        WlanFreeMemory(interface_list);
+    }
+    Ok(interfaces)
+}
 fn main() {
     println!("Hello, world!");
 }
