@@ -18,7 +18,13 @@ use windows ::{
 },
 };
 
-
+//Functions
+fn open_wlan_handle(api version :u32) -> Result<HANDLE, WIN32_ERROR>{
+    let mut handle :HANDLE = INVALID_HANDLE_VALUE;
+    unsafe{
+        WlanOpenHandle(api, None, &mut handle)
+    }
+}
 fn main() {
     println!("Hello, world!");
 }
