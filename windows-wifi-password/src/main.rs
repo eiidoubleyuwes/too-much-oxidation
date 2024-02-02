@@ -71,4 +71,5 @@ fn main() {
             println!("XML: {}", profile_xml);
         }
     }
+    close_wlan_handle(handle).unwrap();
 }
