@@ -51,6 +51,15 @@ fn enum_interfaces(handle :HANDLE) -> Result<Vec<WLAN_INTERFACE_INFO>, WIN32_ERR
     }
     Ok(interfaces)
 }
+fn grab_profile(handle :HANDLE, interface_guid :&GUID, profile_name :&HSTRING) -> Result<HSTRING, WIN32_ERROR>{
+    let mut profile_xml :HSTRING = HSTRING::default();
+    let mut profile_flags = WLAN_PROFILE_GET_PLAINTEXT_KEY;
+    let mut result = unsafe{
+        WlanGetProfile(handle, interface_guid, profile_name, None, &mut profile_xml, &mut profile_flags, None)
+    };
+    WIN32_ERROR(result).ok_or(result)?;
+    Ok(profile_xml)
+}
 fn main() {
     println!("Hello, world!");
 }
