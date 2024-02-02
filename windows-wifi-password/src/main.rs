@@ -8,13 +8,17 @@ use windows ::{
             WlanCloseHandle,
             WlanEnumInterfaces,
             WlanFreeMemory,
-            WLAN_INTERFACE_INFO_LIST,
+            WlanGetProfile,
+            WlanGetProfileList,
+            WLAN_API_VERSION_2_0,
             WLAN_INTERFACE_INFO,
-            WLAN_INTERFACE_STATE,
-        
+            WLAN_PROFILE_GET_PLAINTEXT_KEY,
+            WLAN_PROFILE_INFO_LIST,       
     },
 },
 };
+
+
 fn main() {
     println!("Hello, world!");
 }
