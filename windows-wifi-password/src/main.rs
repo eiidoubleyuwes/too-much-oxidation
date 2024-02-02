@@ -27,6 +27,14 @@ fn open_wlan_handle(api version :u32) -> Result<HANDLE, WIN32_ERROR>{
     WIN32_ERROR(result).ok_or(result)?;
     Ok(handle)
 }
+fn close_wlan_handle(handle :HANDLE) -> Result<(), WIN32_ERROR>{
+    let result = unsafe{
+        WlanCloseHandle(handle, None)
+    };
+    WIN32_ERROR(result).ok_or(result)?;
+    Ok(())
+}
+
 fn main() {
     println!("Hello, world!");
 }
