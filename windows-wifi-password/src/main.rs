@@ -61,5 +61,7 @@ fn grab_profile(handle :HANDLE, interface_guid :&GUID, profile_name :&HSTRING) -
     Ok(profile_xml)
 }
 fn main() {
-    println!("Hello, world!");
+    let handle = open_wlan_handle(WLAN_API_VERSION_2_0).unwrap();
+    let interfaces = enum_interfaces(handle).unwrap();
+    
 }
