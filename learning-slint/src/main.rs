@@ -8,7 +8,7 @@ slint::slint! {
             text: "Mnjala Baraka on top";
             color: green;
         }
-        MemoryTile{}
+        Memorytile{}
     }
     
 
