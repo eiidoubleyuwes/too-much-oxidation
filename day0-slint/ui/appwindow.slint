@@ -1,0 +1,18 @@
+import { Button, VerticalBox } from "std-widgets.slint";
+
+export component AppWindow inherits Window {
+   width : 200px;
+   height: 200px;
+   GridLayout {
+        spacing: 3px;
+        Row {
+            Rectangle { background: red; }
+            Rectangle { background: blue; }
+        }
+        Row {
+            Rectangle { background: yellow; }
+            Rectangle { background: green; }
+        }
+    } 
+}
+
