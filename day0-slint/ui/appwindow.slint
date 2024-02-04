@@ -1,5 +1,10 @@
 import { Button, VerticalBox } from "std-widgets.slint";
 
+component MyText inherits Text {
+    color: red;
+    
+}
+
 export component AppWindow inherits Window {
    width : 200px;
    height: 200px;
@@ -14,5 +19,10 @@ export component AppWindow inherits Window {
             Rectangle { background: green; }
         }
     } 
+    MyText {
+        text: "Welcome to the Grid";
+        font-family: "Arial";
+        font-size: 20px;
+    }
 }
 
