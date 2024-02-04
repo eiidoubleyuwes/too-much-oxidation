@@ -2,27 +2,40 @@ import { Button, VerticalBox } from "std-widgets.slint";
 
 component MyText inherits Text {
     color: red;
-    
+
+}
+
+component MyButton inherits Button {
+    text: "Click Me";
 }
 
 export component AppWindow inherits Window {
    width : 200px;
    height: 200px;
-   GridLayout {
-        spacing: 3px;
-        Row {
-            Rectangle { background: red; }
-            Rectangle { background: blue; }
-        }
-        Row {
-            Rectangle { background: yellow; }
-            Rectangle { background: green; }
-        }
-    } 
+//    GridLayout {
+//         spacing: 3px;
+//         Row {
+//             Rectangle { background: white; }
+//             Rectangle { background: blue; }
+//         }
+//         Row {
+//             Rectangle { background: yellow; }
+//             Rectangle { background: green; }
+//         }
+//     } 
     MyText {
         text: "Welcome to the Grid";
         font-family: "Arial";
         font-size: 20px;
     }
+    VerticalLayout {
+        alignment: start;
+        MyButton {
+            width : 50px;
+            height : 50px;
+    }
+
+    }
+    
 }
 
