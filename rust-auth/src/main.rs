@@ -7,5 +7,6 @@ fn main() -> Result<(), Error> {
 
     let response = client.get("http:httpbin.org/get").basic_auth(user, passwrd).send()?;
     println!("{:?}", response);
+    ok(())
 
 } 
