@@ -11,5 +11,6 @@ error_chain! {
 }
 #[tokio::main] // for the async func
 async fn main() -> Result<()> {
-   
+    let response = reqwest::get("").await?;
+    
 }
