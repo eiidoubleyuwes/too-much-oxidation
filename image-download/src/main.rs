@@ -20,7 +20,7 @@ async fn main() -> Result<()> {
     let response = reqwest::get(target).await?;
 
     //Dealing with the response
-    let mut dest{
+    let mut dest = {
         let majina = response
         .url()
         .path_segments()
@@ -30,9 +30,10 @@ async fn main() -> Result<()> {
     println!("The file to print: '{}'", majina);
     let majina = tm_dir.path().join(majina);
     println!("File will be located under '{}'", majina.display());
-      File::create(majina)?;
+      File::create(majina)?
     };
     let mavitu = response.text().await?;
     copy(&mut mavitu.as_bytes(), &mut dest)?;
     Ok(())
+    
 }
