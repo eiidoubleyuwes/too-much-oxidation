@@ -32,6 +32,7 @@ async fn main() -> Result<()> {
     println!("File will be located under '{}'", majina.display());
       File::create(majina)?;
     };
-    
-   
+    let mavitu = response.text().await?;
+    copy(&mut mavitu.as_bytes(), &mut dest)?;
+    Ok(())
 }
