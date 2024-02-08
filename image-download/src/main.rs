@@ -18,6 +18,17 @@ async fn main() -> Result<()> {
     let target = target.trim(); // remove the trailing newline
     let tm_dir = Builder::new().prefix("Baraka'sdownloader").tempdir()?; // create a temp directory
     let response = reqwest::get(target).await?;
+
+    //Dealing with the response
+    let mut dest{
+        let fname = response
+        .url()
+        .path_segments()
+        .and_then(|segments| segments.last())
+        .and_then(|name| if name.is_empty() { None } else { Some(name) })
+        .unwrap_or("tmp.bin");
+    }
+   
    
     
 }
