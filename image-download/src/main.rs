@@ -21,12 +21,13 @@ async fn main() -> Result<()> {
 
     //Dealing with the response
     let mut dest{
-        let fname = response
+        let majina = response
         .url()
         .path_segments()
         .and_then(|segments| segments.last())
         .and_then(|name| if name.is_empty() { None } else { Some(name) })
         .unwrap_or("tmp.bin");
+    println!("The file to print: {}", majina);
     }
    
    
