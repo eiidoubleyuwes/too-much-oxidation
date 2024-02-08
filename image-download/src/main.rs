@@ -28,8 +28,6 @@ async fn main() -> Result<()> {
         .and_then(|name| if name.is_empty() { None } else { Some(name) })
         .unwrap_or("tmp.bin");
     println!("The file to print: '{}'", majina);
-    }
-   
-   
-    
+    let majina = tm_dir.path().join(majina);
+    }    
 }
