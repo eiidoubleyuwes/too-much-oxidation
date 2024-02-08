@@ -9,3 +9,7 @@ error_chain! {
         HttpRequest(reqwest::Error);
     }
 }
+#[tokio::main] // for the async func
+async fn main() -> Result<()> {
+   
+}
