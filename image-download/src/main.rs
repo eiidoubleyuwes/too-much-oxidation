@@ -29,5 +29,9 @@ async fn main() -> Result<()> {
         .unwrap_or("tmp.bin");
     println!("The file to print: '{}'", majina);
     let majina = tm_dir.path().join(majina);
-    }    
+    println!("File will be located under '{}'", majina.display());
+      File::create(majina)?;
+    };
+    
+   
 }
