@@ -11,6 +11,8 @@ error_chain! {
 }
 #[tokio::main] // for the async func
 async fn main() -> Result<()> {
+    let tm_dir = Builder::new().prefix("Baraka'sdownloader").tempdir()?; // create a temp directory
     let response = reqwest::get("").await?;
+   
     
 }
