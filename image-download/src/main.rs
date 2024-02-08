@@ -27,7 +27,7 @@ async fn main() -> Result<()> {
         .and_then(|segments| segments.last())
         .and_then(|name| if name.is_empty() { None } else { Some(name) })
         .unwrap_or("tmp.bin");
-    println!("The file to print: {}", majina);
+    println!("The file to print: '{}'", majina);
     }
    
    
