@@ -1,14 +1,11 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+#[macro_use] extern crate rocket;
+
+#[get("/world")]
+fn world() -> &'static str {
+    "Hello, world!"
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+#[launch]
+fn rocket() -> _ {
+    rocket::build().mount("/hello", routes![world])
 }
