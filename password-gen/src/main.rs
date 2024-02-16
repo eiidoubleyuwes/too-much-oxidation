@@ -18,7 +18,7 @@ fn main() {
 
     for _ in 0..password_length {
         let random_char = rand::thread_rng().gen_range(33..127);
-        password.push(random_char as char);
+        password.push(char::from_u32(random_char as u32).unwrap());
     }
 
     println!("Generated password: {}", password);
