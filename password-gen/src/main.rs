@@ -8,7 +8,12 @@ use rand::Rng;
 use std::io::Write;
 
 fn main() {
-    let password_length = 20; // Set the desired password length
+    //Allow user input
+    println!("Enter the desired password length: ");
+    let mut password_length = String::new();
+    std::io::stdin().read_line(&mut password_length).unwrap();
+    let password_length: u32 = password_length.trim().parse().unwrap();
+    // let password_length = 20; // Set the desired password length
     let mut password = String::new();
 
     for _ in 0..password_length {
