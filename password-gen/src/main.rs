@@ -8,6 +8,7 @@ use rand::Rng;
 use std::fs::OpenOptions;
 use std::path::Path;
 use std::fs::File;
+use std::io::Write;
 
 fn main() {
     //Allow user input
@@ -25,18 +26,17 @@ fn main() {
 
     println!("Generated password: {}", password);
     //Check if file exists
-   if !Path::new("password.txt").exists() {
-  // file does not exist, create it
-  let mut file = File::create("password.txt").unwrap();
+   let mut file = if Path::new("password.txt").exists() {
+  File::create("password.txt").unwrap() 
 } else {
-  // file exists, open in append mode
-  let  _file = OpenOptions::new()
+  OpenOptions::new()
     .write(true)
     .append(true)
     .open("password.txt")
-    .unwrap();
-}
+    .unwrap()
+};
+
 file.write_all(password.as_bytes()).unwrap();
-file.flush().unwrap();
-file.close().unwrap();
+
+
 }
